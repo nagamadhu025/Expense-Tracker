@@ -1,81 +1,132 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+/* Main Box */
 const Container = styled.div`
+  width: 100%;
+  max-width: 700px;
+
+  background: #020617;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+
   display: flex;
   flex-direction: column;
-  font-family: Montserrat, sans-serif;
-  align-items: center;
-  margin: 10px;
-  width: 100%;
+
+  gap: 20px;
 `;
 
+/* Balance Row */
 const Balance = styled.div`
-  font-size: 18px;
-  width: 100%;
+  font-size: 20px;
+
   font-weight: bold;
+
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  color: #00e5ff;
 `;
 
-const Addtransact = styled.button`
-  background: black;
-  color: white;
+/* Button */
+const AddButton = styled.button`
+  background: #00e5ff;
+
+  color: black;
+
   cursor: pointer;
-  text-align: center;
-  padding: 5px 10px;
-  border-radius: 4px;
+
+  padding: 7px 14px;
+
+  border-radius: 8px;
+
   font-weight: bold;
-  font-size: 15px;
+
+  font-size: 14px;
+
   border: none;
+
+  transition: 0.3s;
+
+  &:hover {
+    background: #22c55e;
+  }
 `;
 
+/* Add Form */
 const AddContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid #e6e8e9;
-  gap: 10px;
-  padding: 15px 20px;
-  margin: 10px 20px;
+
+  gap: 12px;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  background: #0f172a;
+
   & input {
+    background: #020617;
+
+    color: white;
+
+    border: 1px solid #1e293b;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
     outline: none;
-    padding: 10px 12px;
-    border-radius: 4px;
-    border: 1px solid #e6e8e9;
   }
 `;
 
 const RadioBox = styled.div`
   display: flex;
-  gap: 15px;
-  align-items: center;
+  gap: 20px;
+
+  color: white;
 `;
 
+/* Summary */
 const ExpenseSummary = styled.div`
   display: flex;
-  flex-direction: row;
-  gap: 12px;
-  margin: 20px;
+  justify-content: space-between;
+
+  gap: 15px;
 `;
 
 const ExpenseBox = styled.div`
-  border: 1px solid #e6e8e9;
-  padding: 15px 20px;
-  border-radius: 4px;
-  display: flex;
-  width: 100px;
-  flex-direction: column;
-  font-size: 14px;
+  flex: 1;
+
+  background: #0f172a;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  border-left: 5px solid
+    ${(props) => (props.isIncome ? "#22c55e" : "#ef4444")};
+
   & span {
-    font-weight: bold;
-    font-size: 18px;
+    display: block;
+
+    font-size: 20px;
+
     margin-top: 5px;
-    color: ${(props) => (props.isIncome ? "green" : "red")};
+
+    color: ${(props) => (props.isIncome ? "#22c55e" : "#ef4444")};
   }
 `;
 
+/* Add Form Component */
 const View = ({ setAdd, AddTransaction }) => {
   const [type, setType] = useState("expense");
   const [amount, setAmount] = useState("");
@@ -83,12 +134,14 @@ const View = ({ setAdd, AddTransaction }) => {
 
   const handleAdd = () => {
     if (!amount || !desc) return;
+
     AddTransaction({
       amount: Number(amount),
       desc,
       type,
       id: Date.now(),
     });
+
     setAdd(false);
     setAmount("");
     setDesc("");
@@ -97,40 +150,42 @@ const View = ({ setAdd, AddTransaction }) => {
 
   return (
     <AddContainer>
+
       <input
         placeholder="Amount"
         type="number"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
       />
+
       <input
         placeholder="Description"
         value={desc}
         onChange={(e) => setDesc(e.target.value)}
       />
+
       <RadioBox>
         <label>
           <input
             type="radio"
-            name="type"
-            value="expense"
             checked={type === "expense"}
             onChange={() => setType("expense")}
-          />{" "}
-          Expense
+          /> Expense
         </label>
+
         <label>
           <input
             type="radio"
-            name="type"
-            value="income"
             checked={type === "income"}
             onChange={() => setType("income")}
-          />{" "}
-          Income
+          /> Income
         </label>
       </RadioBox>
-      <Addtransact onClick={handleAdd}>Add Transaction</Addtransact>
+
+      <AddButton onClick={handleAdd}>
+        Add Transaction
+      </AddButton>
+
     </AddContainer>
   );
 };
@@ -139,7 +194,10 @@ function Overview({ transactions, AddTransaction }) {
   const [add, setAdd] = useState(false);
 
   const balance = transactions.reduce(
-    (acc, t) => (t.type === "income" ? acc + t.amount : acc - t.amount),
+    (acc, t) =>
+      t.type === "income"
+        ? acc + t.amount
+        : acc - t.amount,
     0
   );
 
@@ -153,21 +211,36 @@ function Overview({ transactions, AddTransaction }) {
 
   return (
     <Container>
+
       <Balance>
-        Balance : ${balance}
-        <Addtransact onClick={() => setAdd(!add)}>
-          {add ? "CANCEL" : "ADD"}
-        </Addtransact>
+        Balance : ₹ {balance}
+
+        <AddButton onClick={() => setAdd(!add)}>
+          {add ? "Cancel" : "Add"}
+        </AddButton>
       </Balance>
-      {add && <View setAdd={setAdd} AddTransaction={AddTransaction} />}
+
+      {add && (
+        <View
+          setAdd={setAdd}
+          AddTransaction={AddTransaction}
+        />
+      )}
+
       <ExpenseSummary>
-        <ExpenseBox isIncome={false}>
-          Expense<span>${totalExpense}</span>
+
+        <ExpenseBox>
+          Expense
+          <span>₹ {totalExpense}</span>
         </ExpenseBox>
-        <ExpenseBox isIncome={true}>
-          Income<span>${totalIncome}</span>
+
+        <ExpenseBox isIncome>
+          Income
+          <span>₹ {totalIncome}</span>
         </ExpenseBox>
+
       </ExpenseSummary>
+
     </Container>
   );
 }

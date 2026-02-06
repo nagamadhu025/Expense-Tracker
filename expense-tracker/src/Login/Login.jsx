@@ -29,7 +29,7 @@ function Login() {
 
     if (username === DEFAULT_USER && password === DEFAULT_PASS) {
       resetForm();
-      navigate("/expense"); // Redirect
+      navigate("/dashboard"); // Redirect
     } else {
       setError("Invalid Username or Password ❌");
     }

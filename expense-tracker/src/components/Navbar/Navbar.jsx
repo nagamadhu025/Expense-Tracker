@@ -7,7 +7,7 @@ function Navbar() {
 
       {/* Left Section */}
       <div className="navbar-left">
-        <h3>Dashboard</h3>
+        <h3>Personal Management System</h3>
       </div>
 
       {/* Right Section */}
