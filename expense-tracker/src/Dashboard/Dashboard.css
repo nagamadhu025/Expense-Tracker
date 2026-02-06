@@ -1,0 +1,159 @@
+/* ================= DASHBOARD ================= */
+
+/* Main */
+.db-dashboard {
+  margin-left: 230px;
+  margin-top: 60px;
+
+  padding: 30px;
+
+  min-height: 100vh;
+  width: calc(100% - 230px);
+
+  background: #0f172a;
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title */
+.db-title {
+  margin-bottom: 25px;
+  color: #00e5ff;
+  font-size: 28px;
+}
+
+/* Cards Row */
+.db-cards {
+  display: flex;
+
+  width: 100%;
+
+  gap: 20px;
+
+  margin-bottom: 40px;
+
+  flex-wrap: wrap;
+}
+
+/* Card */
+.db-card {
+  flex: 1;
+
+  min-width: 240px;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  background: #020617;
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+
+  transition: 0.3s;
+
+  text-align: center;
+
+  cursor: pointer;
+}
+
+/* Hover */
+.db-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 0 30px #00e5ff;
+}
+
+/* Card Title */
+.db-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* Card Value */
+.db-card p {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/* Colors */
+.db-expense {
+  border-left: 5px solid #00e5ff;
+}
+
+.db-todo {
+  border-left: 5px solid #22c55e;
+}
+
+.db-fitness {
+  border-left: 5px solid #f97316;
+}
+
+/* Charts Container */
+.db-charts {
+  width: 100%;
+
+  background: #020617;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+
+  display: flex;
+
+  gap: 25px;
+
+  flex-wrap: wrap;
+}
+
+/* Each Chart */
+.db-chart {
+  flex: 1;
+
+  min-width: 280px;
+
+  background: #020617;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  transition: 0.3s;
+}
+
+/* Hover */
+.db-chart:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+}
+
+/* Chart Title */
+.db-chart h3 {
+  margin-bottom: 15px;
+  color: #00e5ff;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .db-dashboard {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .db-cards {
+    flex-direction: column;
+  }
+
+  .db-card {
+    width: 100%;
+  }
+
+  .db-charts {
+    flex-direction: column;
+  }
+}

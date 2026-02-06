@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
 
 import Expense from "./components/Expense";
-import Login from "./assets/Login/Login";
+import Login from "./Login/Login";
+import Dashboard from "./Dashboard/Dashboard";
+import Fitness from "./components/Fitness/Fitness";
 
 
 const Container = styled.div`
@@ -20,6 +22,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/expense" element={<Expense />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/fitness" element={<Fitness />} />
+
       </Routes>
     </Container>
   );

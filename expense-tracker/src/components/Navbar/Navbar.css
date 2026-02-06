@@ -1,0 +1,82 @@
+/* Navbar Container */
+.navbar {
+  height: 80px;
+  width: calc(100% - 230px);
+
+  background: rgba(20, 30, 48, 0.95);
+
+  position: fixed;
+  top: 0;
+  left: 230px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 25px;
+
+  color: white;
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+
+  z-index: 1000;
+}
+
+/* Left */
+.navbar-left h3 {
+  color: #00e5ff;
+  letter-spacing: 1px;
+}
+
+/* Right */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Search Box */
+.navbar-search {
+  padding: 6px 12px;
+  border-radius: 20px;
+
+  border: none;
+  outline: none;
+
+  background: #1f2933;
+  color: white;
+
+  transition: 0.3s;
+}
+
+.navbar-search::placeholder {
+  color: #aaa;
+}
+
+.navbar-search:focus {
+  box-shadow: 0 0 10px #00e5ff;
+}
+
+/* Profile */
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.navbar-profile img {
+  border-radius: 50%;
+  border: 2px solid #00e5ff;
+}
+
+.navbar-profile span {
+  font-size: 14px;
+}
+
+.navbar-profile:hover {
+  transform: scale(1.05);
+}
