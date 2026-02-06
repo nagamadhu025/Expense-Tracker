@@ -21,6 +21,7 @@ function Expense() {
 
   return (
     <Container>
+      <h1>Expense Tracker</h1>
       <Overview transactions={transactions} AddTransaction={AddTransaction} />
       <TransactionComponent transactions={transactions} />
     </Container>

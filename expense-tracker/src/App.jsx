@@ -1,32 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
+import { Routes, Route } from "react-router-dom";
+
 import Expense from "./components/Expense";
 import Login from "./assets/Login/Login";
 
-const Container=styled.div`
-display:flex;
-flex-direction:column;
-font-family:Montserrat;
-align-items:center;
-margin:30px 0px 10px;
+
+const Container = styled.div`
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat, sans-serif;
 `;
 
-const Header=styled.span`
-color:black;
-font-size:25px;
-font-weight:bold;
-`;
-
-function App(){
-    return (
+function App() {
+  return (
     <Container>
-        <>
-        <Header>Expense Tracker</Header>
-        {/* <Login></Login> */}
-        <Expense></Expense>
-        </>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/expense" element={<Expense />} />
+      </Routes>
     </Container>
-    )
+  );
 }
 
-export default App
+export default App;
