@@ -69,13 +69,10 @@ function Expense() {
         <h1 className="expense-title">
   💰 Expense Tracker
   </h1>
-
-
         <Overview
           transactions={transactions}
           AddTransaction={AddTransaction}
         />
-
         <TransactionComponent
           transactions={transactions}
         />
