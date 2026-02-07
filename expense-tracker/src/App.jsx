@@ -7,6 +7,7 @@ import Login from "./Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
 import Fitness from "./components/Fitness/Fitness";
 import Todo from "./components/temp/Todo"
+import Profile from "./components/Profile/Profile"
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/fitness" element={<Fitness />} />
         <Route path="/todo" element={<Todo />} />
+        <Route path="/profile" element={<Profile />} />
 
 
       </Routes>
