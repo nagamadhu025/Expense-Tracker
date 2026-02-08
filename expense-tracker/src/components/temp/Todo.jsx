@@ -6,22 +6,21 @@ import Navbar from "../Navbar/Navbar";
 
 function Todo() {
 
-  /* States */
   const [task, setTask] = useState("");
   const [todos, setTodos] = useState([]);
 
-  /* Load from LocalStorage */
+  
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("todos"));
     if (saved) setTodos(saved);
   }, []);
 
-  /* Save to LocalStorage */
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-  /* Add Task */
+  
   const addTask = (e) => {
     e.preventDefault();
 
