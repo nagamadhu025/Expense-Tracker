@@ -29,8 +29,6 @@ function App() {
         <Route path="/fitness" element={<Fitness />} />
         <Route path="/todo" element={<Todo />} />
         <Route path="/profile" element={<Profile />} />
-
-
       </Routes>
     </Container>
   );
