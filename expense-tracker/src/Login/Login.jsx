@@ -133,7 +133,7 @@ function Login() {
               color: "#555"
             }}
           >
-            Demo Login → <b>admin / 1234</b>
+            {/* Demo Login → <b>admin / 1234</b> */}
           </p>
         )}
 
