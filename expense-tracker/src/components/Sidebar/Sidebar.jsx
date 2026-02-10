@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import {
   FaHome,
@@ -7,11 +7,23 @@ import {
   FaRunning,
   FaTasks,
   FaUser,
+  FaSignOutAlt
 } from "react-icons/fa";
 
 import "./Sidebar.css";
 
 function Sidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // clear authentication data
+    localStorage.removeItem("token");
+    sessionStorage.removeItem("user");
+
+    // redirect to login page
+    navigate("/login");
+  };
+
   return (
     <div className="sidebar">
 
@@ -49,6 +61,13 @@ function Sidebar() {
           <NavLink to="/profile">
             <FaUser /> <span>Profile</span>
           </NavLink>
+        </li>
+
+        {/* Logout item */}
+         <li onClick={handleLogout} style={{ cursor: "pointer" }}>
+          <NavLink to="/">
+        <FaSignOutAlt /> <span>Logout</span>
+        </NavLink>
         </li>
 
       </ul>
