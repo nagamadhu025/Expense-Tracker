@@ -58,7 +58,7 @@ const AddButton = styled.button`
   }
 `;
 
-/* Add Form */
+
 const AddContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -93,7 +93,7 @@ const RadioBox = styled.div`
   color: white;
 `;
 
-/* Summary */
+
 const ExpenseSummary = styled.div`
   display: flex;
   justify-content: space-between;
